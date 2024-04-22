@@ -22,8 +22,8 @@ with open(officer_forms, newline='') as csvfile:
                     print('[DENY]',row[2], row[22], row[21], 'Both incoming SEO and Finance Officer were selected for the same RSO')
                 else:
                     print('[MULTIPLE ORGS]', row[2], 'SEO for :' + row[22], 'FO for :' + row[21], row[15], row[17])
-            elif row[40] != 'Yes':
-                print('[DENY]','Did not agree with statment.')
+            elif row[40].lower() != 'yes' or row[40].lower() == row[32].lower():
+                print('[DENY]','Did not agree with statment.', row[2], row[22], row[21], row[15], row[17])
             else:
                 print(row[2], row[22], row[21], row[15], row[17])
             print('-------------------------------')
@@ -31,3 +31,4 @@ with open(officer_forms, newline='') as csvfile:
 
 # TODO Group same orgs together in output
 # TODO Clean up output for better viewing
+# TODO Error handling when no file exist

@@ -32,9 +32,9 @@ with open(advisor_form, newline='', encoding='utf-8') as csvfile:
     for row in advisor_reader:
         if row[status_index] == 'Pending':
             if row[2] in eligibile_advisors_username or row[3] in eligibile_advisors_username:
-                print(row[2], row[3], row[4])
+                print(row[2], row[3], row[4], row[12])
             else:
-                print('[CHECK]', row[2], row[3], row[4])
+                print('[CHECK]', row[2], row[3], row[4], row[12])
             print('-------------------------------')
             
 
